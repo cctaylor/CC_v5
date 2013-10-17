@@ -1,0 +1,55 @@
+<%= provide(:title, "Request a quote") %>
+<h1>Request a quote</h1>
+
+<%= form_for @quote, :html => {:class => 'custom'} do |f| %>
+	<div class="row">
+		<div class="large-10 large-offset-1 columns">
+				<%= render 'shared/error_messages', object: f.object %>
+		</div>
+	</div>
+
+	<fieldset><legend>Job Details</legend>
+		<div class="row">
+			<div class="large-4 columns">
+				<%= f.label :item, "Item to print" %>
+				<%= f.select(:item, Quote::ITEM_TYPES) %>
+			</div>
+			<div class="large-4 columns">
+				<%= f.label :paper, "Paper type" %>
+				<%= f.select(:paper, Quote::PAPER_TYPES) %>
+			</div>
+			<div class="large-4 columns">
+				<%= f.label :fold, "Folding (if any)" %>
+				<%= f.select(:fold, Quote::FOLD_TYPES) %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="large-4 columns">
+				<%= f.label :color1, "Color - front side" %>
+				<%= f.select(:color1, Quote::COLOR_TYPES) %>
+			</div>
+			<div class="large-4 columns">
+				<%= f.label :color2, "Color - back side (if any)" %>
+				<%= f.select(:color2, Quote::COLOR_TYPES_BACK) %>
+			</div>
+			<div class="large-4 columns">
+				<%= f.label :quantity, "Quantity" %>
+				<%= f.select(:quantity, Quote::QUANTITY_TYPES) %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="large-12 columns">
+				<%= f.label :message, "Any additional instructions, questions, etc." %>
+				<%= f.text_area :message, id: "commentBox" %>
+			</div>
+		</div>
+	</fieldset>
+
+		<div class="row">
+			<div class="large-2 large-centered small-centered columns">
+				<%= f.submit "Submit your request", class: "small button" %>
+			</div>
+		</div>
+<% end %>

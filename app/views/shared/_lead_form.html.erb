@@ -1,0 +1,34 @@
+<fieldset>
+	<legend>Request a Quote / Contact Us</legend>
+	<%= form_for @user, :html => {:class => 'custom'} do |f| %>
+		<div class="row">
+			<div class="large-4 large-offset-1 columns">
+				<%= f.text_field :name_first, placeholder: "First Name" %>
+			</div>
+			<div class="large-5 large-offset-1 columns">
+				<%= f.text_field :name_last, placeholder: "Last Name" %>
+			</div>
+			<div class="large-1 columns"></div>
+		</div>
+		<div class="row">
+			<div class="large-10 large-offset-1 columns">
+				<%= f.text_field :email, placeholder: "Email address" %>
+			</div>
+			<div class="large-1 columns"></div>
+		</div>
+		<div class="row">
+			<div class="large-10 large-offset-1 columns">
+				<%= f.text_field :phone, placeholder: "Phone number" %>
+			</div>
+			<div class="large-1 columns"></div>
+		</div>
+		<div class="thinSpacerRowWhite"></div>
+		<div class="row">
+			<div class="large-3 large-offset-8 columns">
+				<%= f.submit "Continue", class: "small button" %>
+			</div>
+			<div class="large-1 columns">
+			</div>
+		</div>
+	<% end %>
+</fieldset>

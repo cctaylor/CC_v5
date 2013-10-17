@@ -1,0 +1,4 @@
+
+.non-CTA-button {
+	@include button($padding:$button-sml, $full-width:true);
+}

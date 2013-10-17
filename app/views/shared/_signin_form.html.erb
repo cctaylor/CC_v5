@@ -1,0 +1,29 @@
+<fieldset>
+	<legend>Sign In</legend>
+	<%= form_for(:session, url: sessions_path) do |f| %>
+		<div class="row">
+			<div class="large-8 large-offset-2 columns">
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+			</div>
+			<div class="large-2 columns">
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-8 large-offset-2 columns">
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+			</div>
+			<div class="large-2 columns">
+			</div>
+		</div>
+		<div class="thinSpacerRowWhite"></div>
+		<div class="row">
+			<div class="large-3 large-offset-7 columns">
+				<%= f.submit "Sign in", class: "non-CTA-button" %>
+			</div>
+			<div class="large-2 columns">
+			</div>
+		</div>
+	<% end %>
+</fieldset>

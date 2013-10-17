@@ -1,0 +1,58 @@
+<%= provide(:title, "Contact Us") %>
+<div class="row">
+	<div class="large-10 large-offset-1 columns">
+		<h1>Contact Us</h1>
+		<p>Thank you for your interest in Color Craze. Here's everything you need to know to get in touch with us:</p>
+		<div class="large-10 large-offset-1 columns">
+			<ol>
+				<li>Submit a question or request for a quote directly through our website <a href=rfq><strong>here</strong></a></li>
+				<li>Give us a call at <strong>972-377-5965</strong></li>
+				<li>Visit us at:
+					<ul class="cc-address">
+						<li><strong>Color Craze</strong></li>
+						<li>5850 Town and Country Blvd., Suite 702</li>
+						<li>Frisco, TX 75034</li>
+					</ul>
+				</li>
+			</ol>
+		</div>
+		<div class="large-1 columns">
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-8 large-offset-2 column">
+		<% if params[:origin] == nil %>
+			<h5>For door-to-door directions, enter your starting point below:</h5>
+			<%= form_tag("/contact", method: "post") do %>
+				<div class="large-2 columns">
+					<%= label_tag(:origin, "Starting point:") %>
+				</div>
+				<div class="large-6 columns">
+					<%= text_field_tag(:origin) %>
+				</div>
+				<div class="large-1 large-offset-1 columns">
+					<%= submit_tag "Get directions", class: "small button" %>
+				</div>
+				<div class="large-2 columns">
+				</div>
+			<% end %>
+		<% else %>
+			<h5>Scroll down for your directions from:</h5>
+			<p><%= params[:origin] %></p>
+		<% end %>
+	</div>
+		<div class="large-2 columns">
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-10 large-offset-1 columns">
+		<%= gmaps(@gmap_options) %>
+	</div>
+</div>
+<div class="row">
+	<div class="large-10 large-offset-1 columns" id="instructions">
+	</div>
+</div>

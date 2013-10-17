@@ -1,0 +1,23 @@
+<li>
+	<div class="row">
+		<div class="large-1 large-offset-2 columns">
+			<%= gravatar_for user, size: 52 %>
+		</div>
+		<div class="large-4 columns">
+			<%= link_to "#{user.name_last}, #{user.name_first}", user %>
+		</div>
+		<div class="large-1 large-offset-1 columns">
+			<% if current_user.admin? && user.admin? %>
+				Admin
+			<% else %>
+				User
+			<% end %>
+		</div>
+		<div class="large-1 columns">
+			<% if current_user.admin? && !current_user?(user) %>
+					<%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+			<% end %>
+		</div>
+		<div class="large-2 columns"></div>
+	</div>
+</li>
