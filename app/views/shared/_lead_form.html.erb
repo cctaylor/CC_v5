@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="fieldset-std">
 	<legend>Request a Quote / Contact Us</legend>
 	<%= form_for @user, :html => {:class => 'custom'} do |f| %>
 		<div class="row">
@@ -25,7 +25,7 @@
 		<div class="thinSpacerRowWhite"></div>
 		<div class="row">
 			<div class="large-3 large-offset-8 columns">
-				<%= f.submit "Continue", class: "small button" %>
+				<%= f.submit "Continue", class: "button-non-CTA" %>
 			</div>
 			<div class="large-1 columns">
 			</div>

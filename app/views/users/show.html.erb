@@ -1,8 +1,74 @@
 <% provide(:title, @user.name_last ) %>
-<h1>
-	<%= gravatar_for @user %>
-	<%= @user.name_first %> <%= @user.name_last %>
-</h1>
 
+<div class="row">
+	<div class="large-10 large-offset-1 columns">
+		<%= gravatar_for @user %>
+		<h1><%= @user.name_first %> <%= @user.name_last %></h1>
 
-<%= @user.email %>
+		<div class="row">
+			<div class="large-5 columns">
+				<h3>User Info</h3>
+				<table>
+					<tr>
+						<td>Company</td>
+						<td><%= @user.company %></td>
+					</tr>
+					<tr>
+						<td>Phone</td>
+						<td><%= @user.phone %></td>
+					</tr>
+					<tr>
+						<td>Email address</td>
+						<td><%= @user.email %></td>
+					</tr>
+					<tr>
+						<td>Street address</td>
+						<td>
+							<%= @user.address1 %>
+							<% if @user.address2 %>
+								<%= @user.address2 %>
+							<% end %>
+						</td>
+					</tr>
+					<tr>
+						<td>City</td>
+						<td><%= @user.city %></td>
+					</tr>
+					<tr>
+						<td>State</td>
+						<td><%= @user.state %></td>
+					</tr>
+					<tr>
+						<td>Zip</td>
+						<td><%= @user.zip %></td>
+					</tr>
+				</table>
+			</div>
+			<div class="large-7 columns">
+				<% if @user.quotes.any? %>
+					<h3>Quotes (<%= @user.quotes.count %>)</h3>
+						<div class="row">
+							<div class="large-1 columns">
+								<h6>ID</h6>
+							</div>
+							<div class="large-3 columns">
+								<h6>Name</h6>
+							</div>
+							<div class="large-4 columns">
+								<h6>Created</h6>
+							</div>
+							<div class="large-4 columns">
+								<h6>Status</h6>
+							</div>
+						</div>
+					<ol class="quotes">
+						<%= render @quotes %>
+					</ol>
+					<%= will_paginate @quotes %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="large-1 columns">
+	</div>
+</div>

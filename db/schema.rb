@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919204218) do
+ActiveRecord::Schema.define(:version => 20131022155454) do
 
   create_table "quotes", :force => true do |t|
     t.string   "item"
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(:version => 20130919204218) do
     t.string   "color2"
     t.integer  "quantity"
     t.string   "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
+    t.string   "quote_name"
+    t.string   "status",     :default => "NEW"
   end
 
   add_index "quotes", ["user_id", "created_at"], :name => "index_quotes_on_user_id_and_created_at"

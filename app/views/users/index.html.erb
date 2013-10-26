@@ -1,10 +1,39 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
 
-<%= will_paginate %>
+<div class="row">
+	<div class="large-10 large-offset-1 columns">
 
-<ul class="users">
-		<%= render @users %>
-</ul>
+		<h1>All users</h1>
 
-<%= will_paginate %>
+		<div class="row">
+			<div class="large-1 columns">
+				<h6>ID</h6>
+			</div>
+			<div class="large-3 large-offset-1 columns">
+				<h6>Name</h6>
+			</div>
+			<div class="large-2 columns">
+				<h6>Company</h6>
+			</div>
+			<div class="large-1 large-offset-1 columns">
+				<h6>Type</h6>
+			</div>
+			<div class="large-1 columns">
+				<h6>Quotes</h6>
+			</div>
+			<div class="large-3 columns">
+			</div>
+		</div>
+
+		<%= will_paginate %>
+
+		<ul class="users">
+				<%= render @users %>
+		</ul>
+
+		<%= will_paginate %>
+
+	</div>
+	<div class="large-1 columns">
+	</div>
+</div>

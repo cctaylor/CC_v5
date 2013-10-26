@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="fieldset-std">
 	<legend>Sign In</legend>
 	<%= form_for(:session, url: sessions_path) do |f| %>
 		<div class="row">
@@ -20,7 +20,7 @@
 		<div class="thinSpacerRowWhite"></div>
 		<div class="row">
 			<div class="large-3 large-offset-7 columns">
-				<%= f.submit "Sign in", class: "non-CTA-button" %>
+				<%= f.submit "Sign in", class: "button-non-CTA" %>
 			</div>
 			<div class="large-2 columns">
 			</div>

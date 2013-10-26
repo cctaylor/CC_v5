@@ -1,4 +1,9 @@
 
-.non-CTA-button {
+.button-non-CTA {
 	@include button($padding:$button-sml, $full-width:true);
+}
+
+.fieldset-std {
+	height: emCalc(250px);
+	@include fieldset;
 }

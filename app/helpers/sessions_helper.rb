@@ -28,6 +28,24 @@ module SessionsHelper
 		end
 	end
 
+	def signed_in_lead
+		unless signed_in? and !is_customer? and current_user?(@user)
+			store_location
+			redirect_to signin_url, notice: "Please sign in"
+		end
+	end
+
+	def signed_in_customer
+		unless signed_in? and is_customer?
+			store_location
+			redirect_to signin_url, notice: "Please sign in"
+		end
+	end
+
+	def admin_user
+		redirect_to(root_url) unless current_user.admin?
+	end
+
 	def sign_out
 		self.current_user = nil
 		cookies.delete(:remember_token)

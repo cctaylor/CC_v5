@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:ct_custom] = '%m-%d-%y %I:%M %p'

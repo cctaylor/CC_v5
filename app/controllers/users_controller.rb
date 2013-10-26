@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
-	before_filter :signed_in_user,	only: [:index, :edit, :show, :update, :destroy]
-	before_filter :correct_user,	only: [:edit, :update]
-	before_filter :admin_user,		only: :destroy
+	before_filter :signed_in_user,		only: [:update]
+	before_filter :signed_in_lead,		only: [:lead_to_customer]
+	before_filter :signed_in_customer,	only: [:show, :edit, :change_password]
+	before_filter :admin_user,			only: [:index, :destroy]
 
 	def show
 		@user = User.find(params[:id])
+		@quotes = @user.quotes.paginate(page: params[:page])
 	end
 
 	def new
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
 		if @user = User.find_by_email(params[:user][:email])
 			if @user.lead
 				sign_in @user
-				render 'edit'
+				render 'lead_to_customer'
 			else
 				redirect_to signin_path
 			end
@@ -34,16 +36,29 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
+	end
+
+	def change_password
+		@user = User.find(params[:id])
+	end
+
+	def lead_to_customer
 	end
 
 	def update
+		@user = User.find(params[:id])
 		if @user.update_attributes(params[:user])
-			if setting_password?
-				@user.toggle!(:lead) unless @user.lead == false
+			if @user.lead
+				@user.toggle!(:lead)
 				sign_in @user
+				flash[:success] = "Profile updated"
+				redirect_to rfq_path
+			else
+				sign_in @user
+				flash[:success] = "Profile updated"
+				redirect_to @user
 			end
-			flash[:success] = "Profile updated"
-			redirect_to rfq_path
 		else
 			render 'edit'
 		end
@@ -66,12 +81,8 @@ class UsersController < ApplicationController
 			redirect_to(root_url) unless current_user?(@user)
 		end
 
-		def admin_user
-			redirect_to(root_url) unless current_user.admin?
-		end
-
 		def setting_password?
-			(@user.password != '' && @user.password != nil) || (@user.password_confirmation != '' && @user.password_confirmation != nil)
+			(@user.password != nil) || (@user.password_confirmation != nil)
 		end
 
 		def password_exists?

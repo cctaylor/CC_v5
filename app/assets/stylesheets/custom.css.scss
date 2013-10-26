@@ -10,8 +10,22 @@ $CTA: #9FEE00;
 	box-sizing: border-box;
 }
 
-.CTA {
+section.top-bar-section ul.right li a.li-CTA {
 	background-color: $CTA;
+	color: black;
+	&:hover {
+		background-color: darken($CTA, 7%);
+	}
+}
+
+section.top-bar-section ul.right .divider {
+	border-right: solid 1px lighten($CTA, 10%);
+	border-left: solid 1px darken($CTA, 10%);
+	border-bottom: none;
+	border-top: none;
+	clear: none;
+	height: 45px;
+	width: 0;
 }
 
 .lighterGray {
@@ -176,11 +190,11 @@ input[type="text"].lrgTextInput {
 
 form.custom {
 	.custom.dropdown {
-		width: 90%;
+		width: 100%;
 	}
 
 	#commentBox {
-		width: 95%;
+		width: 100%;
 		height: emCalc(90px);
 		vertical-align: top;
 		cols: 40;
@@ -225,8 +239,8 @@ form.custom {
 	margin: 0;
 	padding: 0;
 	li {
-	//	overflow: auto;
-		padding: 10px 0;
+		overflow: auto;
+		padding: emCalc(10px) 0;
 		margin: 0;
 		border-top: 1px solid $lighterGray;
 		font-size: emCalc(12px);

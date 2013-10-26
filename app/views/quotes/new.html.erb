@@ -6,50 +6,102 @@
 		<div class="large-10 large-offset-1 columns">
 				<%= render 'shared/error_messages', object: f.object %>
 		</div>
+		<div class="large-1 columns">
+		</div>
 	</div>
 
-	<fieldset><legend>Job Details</legend>
-		<div class="row">
-			<div class="large-4 columns">
-				<%= f.label :item, "Item to print" %>
-				<%= f.select(:item, Quote::ITEM_TYPES) %>
+	<div class="row">
+		<div class="large-6 large-offset-1 columns">
+		<fieldset><legend>Job Details</legend>
+			<div class="row">
+				<div class="large-4 large-offset-1 columns">
+					<%= f.label :quote_name, "Name / reference no." %>
+				</div>
+				<div class="large-6 columns">
+					<%= f.text_field(:quote_name) %>
+				</div>
+				<div class="large-1 columns">
+				</div>
 			</div>
-			<div class="large-4 columns">
-				<%= f.label :paper, "Paper type" %>
-				<%= f.select(:paper, Quote::PAPER_TYPES) %>
+			<div class="row">
+				<div class="large-4 large-offset-1 columns">
+					<%= f.label :item, "Item to print" %>
+				</div>
+				<div class="large-6 columns">
+					<%= f.select(:item, Quote::ITEM_TYPES) %>
+				</div>
+				<div class="large-1 columns">
+				</div>
 			</div>
-			<div class="large-4 columns">
-				<%= f.label :fold, "Folding (if any)" %>
-				<%= f.select(:fold, Quote::FOLD_TYPES) %>
+			<div class="row">
+				<div class="large-4 large-offset-1 columns">
+					<%= f.label :paper, "Paper type" %>
+				</div>
+				<div class="large-6 columns">
+					<%= f.select(:paper, Quote::PAPER_TYPES) %>
+				</div>
+				<div class="large-1 columns">
+				</div>
 			</div>
+			<div class="row">
+				<div class="large-4 large-offset-1 columns">
+					<%= f.label :fold, "Folding (if any)" %>
+				</div>
+				<div class="large-6 columns">
+					<%= f.select(:fold, Quote::FOLD_TYPES) %>
+				</div>
+				<div class="large-1 columns">
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-4 large-offset-1 columns">
+					<%= f.label :color1, "Color - front side" %>
+				</div>
+				<div class="large-6 columns">
+					<%= f.select(:color1, Quote::COLOR_TYPES) %>
+				</div>
+				<div class="large-1 columns">
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-4 large-offset-1 columns">
+					<%= f.label :color2, "Color - back side" %>
+				</div>
+				<div class="large-6 columns">
+					<%= f.select(:color2, Quote::COLOR_TYPES_BACK) %>
+				</div>
+				<div class="large-1 columns">
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-4 large-offset-1 columns">
+					<%= f.label :quantity, "Quantity" %>
+				</div>
+				<div class="large-6 columns">
+					<%= f.select(:quantity, Quote::QUANTITY_TYPES) %>
+				</div>
+				<div class="large-1 columns">
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-10 large-offset-1 columns">
+					<%= f.label :message, "Any additional instructions, questions, etc." %>
+					<%= f.text_area :message, id: "commentBox" %>
+				</div>
+				<div class="large-1 columns">
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-4 large-centered columns">
+					<%= f.submit "Submit your request", class: "button-non-CTA" %>
+				</div>
+			</div>
+		</fieldset>
 		</div>
 
-		<div class="row">
-			<div class="large-4 columns">
-				<%= f.label :color1, "Color - front side" %>
-				<%= f.select(:color1, Quote::COLOR_TYPES) %>
-			</div>
-			<div class="large-4 columns">
-				<%= f.label :color2, "Color - back side (if any)" %>
-				<%= f.select(:color2, Quote::COLOR_TYPES_BACK) %>
-			</div>
-			<div class="large-4 columns">
-				<%= f.label :quantity, "Quantity" %>
-				<%= f.select(:quantity, Quote::QUANTITY_TYPES) %>
-			</div>
+		<div class="large-4 columns">
 		</div>
-
-		<div class="row">
-			<div class="large-12 columns">
-				<%= f.label :message, "Any additional instructions, questions, etc." %>
-				<%= f.text_area :message, id: "commentBox" %>
-			</div>
+		<div class="large-1 columns">
 		</div>
-	</fieldset>
-
-		<div class="row">
-			<div class="large-2 large-centered small-centered columns">
-				<%= f.submit "Submit your request", class: "small button" %>
-			</div>
-		</div>
+	</div>
 <% end %>

@@ -1,7 +1,7 @@
 class QuotesController < ApplicationController
 	before_filter :signed_in_user, only: [:new, :create]
 	before_filter :signed_in_customer, only: [:update, :show, :edit]
-	before_filter :admin_user, only: [:destroy]
+	before_filter :admin_user, only: [:destroy, :index]
 
 	def new
 		@quote = current_user.quotes.build
@@ -14,7 +14,7 @@ class QuotesController < ApplicationController
 			sign_out if is_lead?
 			redirect_to root_url
 		else
-			render rfq_path
+			render 'new'
 		end
 	end
 
@@ -25,9 +25,16 @@ class QuotesController < ApplicationController
 	end
 
 	def show
+		@user = current_user
+		@quote = Quote.find(params[:id])
 	end
 
 	def edit
+	end
+
+	def index
+		@user = current_user
+		@quotes = Quote.paginate(page: params[:page])		
 	end
 
 end

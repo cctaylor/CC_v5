@@ -1,0 +1,101 @@
+<%= provide(:title, 'Create an account') %>
+<h1>Update your user information</h1>
+<div class="row">
+	<div class="large-6 large-offset-1 columns">
+		<fieldset>
+			<legend>Enter your contact information</legend>
+			<%= form_for @user, :html => {:class => 'custom'} do |f| %>
+				<%= render 'shared/error_messages', object: f.object %>
+
+				<div class="row">
+					<div class="large-3 columns">
+						<%= f.label :name_first, "First name" %>
+						<%= f.text_field :name_first %>
+					</div>
+
+					<div class="large-3 large-offset-1 columns">
+						<%= f.label :name_last, "Last name" %>
+						<%= f.text_field :name_last %>
+					</div>
+					<div class="large-8 columns"></div>
+				</div>
+
+				<div class="row">
+					<div class="large-7 columns">
+						<%= f.label :email, "Email address" %>
+						<%= f.email_field :email %>
+					</div>
+
+					<div class="large-4 large-offset-1 columns">
+						<%= f.label :phone, "Phone number" %>
+						<%= f.telephone_field :phone %>
+					</div>
+				</div>
+
+				<div class="thinSpacerRowWhite"></div>
+
+				<div class="row">
+					<div class="large-7 columns">
+						<%= f.label :company, "Company name" %>
+						<%= f.text_field :company %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="large-7 columns">
+						<%= f.label :address1, "Street address" %>
+						<%= f.text_field :address1 %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="large-7 columns">
+						<%= f.text_field :address2, placeholder: "Street address second line (if needed)" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="large-5 columns">
+						<%= f.label :city, "City" %>
+						<%= f.text_field :city %>
+					</div>
+
+					<div class="large-2 large-offset-1 columns">
+						<%= f.label :state, "State" %>
+						<%= f.select(:state, User::STATES) %>
+					</div>
+
+					<div class="large-2 large-offset-1 columns">
+						<%= f.label :zip, "Zip code" %>
+						<%= f.text_field :zip %>
+					</div>
+					<div class="large-1 columns"></div>
+				</div>
+
+				<div class="thinSpacerRowWhite"></div>
+
+				<div class="row">
+					<div class="large-5 columns">
+						<%= f.label :password, "Password"%>
+						<%= f.password_field :password %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="large-5 columns">
+						<%= f.label :password_confirmation, "Password confirmation" %>
+						<%= f.password_field :password_confirmation %>
+					</div>
+				</div>
+
+				<div class="thinSpacerRowWhite"></div>
+
+				<div class="row">
+					<div class="large-4 large-offset-4 columns">
+						<%= f.submit "Create account", class: "small button" %>
+					</div>
+				</div>
+			<% end %>
+		</fieldset>
+	</div>
+</div>

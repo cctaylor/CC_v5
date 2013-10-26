@@ -9,7 +9,7 @@
 		<div id="addressBlock">
 			5850 Town and Country Blvd. Ste 702<br>
 			Frisco, TX 75034<br>
-			972-377-5965
+			<strong>972-377-5965</strong>
 		</div>
 	</div>
 </div>
@@ -24,23 +24,22 @@
 		<section class="top-bar-section">
 			<ul class="left">
 				<li class="divider"></li>
-				<li class="active"><%= link_to "Services",	services_path %></li>
+				<li><%= link_to "Services",	services_path %></li>
 				<li class="divider"></li>
-				<li class="active"><%= link_to "Customers",	customers_path %></li>
+				<li><%= link_to "Customers",	customers_path %></li>
 				<li class="divider"></li>
-				<li class="active"><%= link_to "About Us",	about_path %></li>
+				<li><%= link_to "About Us",	about_path %></li>
 				<li class="divider"></li>
-				<li class="active"><%= link_to "Contact Us",	contact_path %></li>
+				<li><%= link_to "Contact Us",	contact_path %></li>
 				<li class="divider"></li>
 				<% if signed_in? %>
-					<li class="has-dropdown active"><a href="#">Admin</a>
+					<li class="has-dropdown"><a href="#">Admin</a>
 						<ul class="dropdown">
 							<li><%= link_to "Profile", current_user %></li>
 							<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 							<li><% if current_user.admin? %>
 									<%= link_to "Users", users_path %>
 									<%= link_to "Quotes", quotes_path %>
-									<%= link_to "Leads", leads_path %>
 								<% end %>
 							</li>
 							<li class="divider"></li>
@@ -51,7 +50,11 @@
 				<% end %>
 			</ul>
 			<ul class="right">
-				<li class="active has-form"><%= link_to "Request a Quote", rfq_path, :class => "success button" %></li>
+				<li class="divider"></li>
+				<li><%= link_to "Sign In", signin_path, :class => "li-CTA" %></li>
+				<li class="divider"></li>
+				<li class="li-CTA"><%= link_to "Request a Quote", rfq_path, :class => "li-CTA" %></li>
+				<li class="divider"></li>
 			</ul>
 		</section>
 	</nav>

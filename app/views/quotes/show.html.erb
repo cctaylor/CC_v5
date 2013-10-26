@@ -1,0 +1,101 @@
+<% provide(:title, @quote.quote_name ) %>
+
+<div class="row">
+	<div class="large-10 large-offset-1 columns">
+		<%= gravatar_for @user %>
+		<h1><%= @user.name_first %> <%= @user.name_last %></h1>
+
+		<div class="row">
+			<div class="large-5 columns">
+				<h3>User Info</h3>
+				<table>
+					<tr>
+						<td>Company</td>
+						<td><%= @user.company %></td>
+					</tr>
+					<tr>
+						<td>Phone</td>
+						<td><%= @user.phone %></td>
+					</tr>
+					<tr>
+						<td>Email address</td>
+						<td><%= @user.email %></td>
+					</tr>
+					<tr>
+						<td>Street address</td>
+						<td>
+							<%= @user.address1 %>
+							<% if @user.address2 %>
+								<%= @user.address2 %>
+							<% end %>
+						</td>
+					</tr>
+					<tr>
+						<td>City</td>
+						<td><%= @user.city %></td>
+					</tr>
+					<tr>
+						<td>State</td>
+						<td><%= @user.state %></td>
+					</tr>
+					<tr>
+						<td>Zip</td>
+						<td><%= @user.zip %></td>
+					</tr>
+				</table>
+			</div>
+			<div class="large-7 columns">
+				<h3>Quote Info</h3>
+				<table>
+					<tr>
+						<td>Quote name</td>
+						<td><%= @quote.quote_name %></td>
+					</tr>
+					<tr>
+						<td>Current status</td>
+						<td><%= @quote.status %></td>
+					</tr>
+					<tr>
+						<td>Created</td>
+						<td><%= @quote.created_at.to_s(:ct_custom) %></td>
+					</tr>
+					<tr>
+						<td>Last modified</td>
+						<td><%= @quote.updated_at.to_s(:ct_custom) %></td>
+					</tr>
+					<tr>
+						<td>Item</td>
+						<td><%= @quote.item %></td>
+					</tr>
+					<tr>
+						<td>Paper type</td>
+						<td><%= @quote.paper %></td>
+					</tr>
+					<tr>
+						<td>Folding</td>
+						<td><%= @quote.fold %></td>
+					</tr>
+					<tr>
+						<td>Color - front side</td>
+						<td><%= @quote.color1 %></td>
+					</tr>
+					<tr>
+						<td>Color - back side</td>
+						<td><%= @quote.color2 %></td>
+					</tr>
+					<tr>
+						<td>Quantity</td>
+						<td><%= @quote.quantity %></td>
+					</tr>
+					<tr>
+						<td>Comments</td>
+						<td><%= @quote.message %></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="large-1 columns">
+	</div>
+</div>
+
