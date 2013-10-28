@@ -28,6 +28,33 @@ section.top-bar-section ul.right .divider {
 	width: 0;
 }
 
+.logged-in-nav {
+	background-color: darken($grayMediumLight,20%);
+	height: 30px;
+	font-size: emCalc(12px);
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+		float: right;
+
+		li {
+			float: left;
+			margin: emCalc(10px);
+			a {
+				color: black;
+				font-weight: normal;
+			}
+		}
+	}
+}
+
+.bkgdWhite {
+	background-color: white;
+}
+
 .lighterGray {
 	background-color: $lighterGray;
 }
