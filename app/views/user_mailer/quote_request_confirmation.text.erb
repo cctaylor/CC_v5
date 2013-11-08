@@ -1,0 +1,19 @@
+<%= "#{@quote.user.name_first} #{@quote.user.name_last}," %>
+
+Thank you for submitting a request for a quote. You can expect a response within one business day. If you have any questions in the meantime, you can respond to this email or give us a call at 972-377-5965.
+
+Thanks!
+Color Craze
+
+
+Quote Info:
+<%= "Quote name: 	#{@quote.quote_name}" %>
+<%= "Created: 		#{@quote.created_at.to_s(:ct_custom)}" %>
+<%= "Last modified: #{@quote.updated_at.to_s(:ct_custom)}" %>
+<%= "Item: 			#{@quote.item}" %>
+<%= "Paper type: 	#{@quote.paper}" %>
+<%= "Folding: 		#{@quote.fold}" %>
+<%= "Color - front: #{@quote.color1}" %>
+<%= "Color - back: 	#{@quote.color2}" %>
+<%= "Quantity: 		#{@quote.quantity}" %>
+<%= "Comments: 		#{@quote.message}" %>

@@ -1,7 +1,7 @@
 
 .button-non-CTA {
 	margin-bottom: 0;
-	@include button($padding:$button-sml, $full-width:true);
+	@include button($padding:$button-sml, $full-width:true, $bg:#009999);
 }
 
 .fieldset-std {

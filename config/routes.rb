@@ -1,8 +1,11 @@
 CCV5::Application.routes.draw do
 
+  get "password_resets/new"
+
   resources :users
   resources :quotes
   resources :sessions, only: [:new, :create, :destroy]
+  resources :password_resets
 
   root to: 'static_pages#home'
 
@@ -16,6 +19,7 @@ CCV5::Application.routes.draw do
   match '/customers',	to: 'static_pages#customers'
   match '/about',		to: 'static_pages#about'
   match '/contact',		to: 'static_pages#contact'
+  match '/privacy',   to: 'static_pages#privacy'
 
 
   # The priority is based upon order of creation:

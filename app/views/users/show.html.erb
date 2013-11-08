@@ -2,9 +2,7 @@
 
 <div class="row">
 	<div class="large-10 large-offset-1 columns">
-		<%= gravatar_for @user %>
 		<h1><%= @user.name_first %> <%= @user.name_last %></h1>
-
 		<div class="row">
 			<div class="large-5 columns">
 				<h3>User Info</h3>
@@ -51,13 +49,18 @@
 							<div class="large-1 columns">
 								<h6>ID</h6>
 							</div>
-							<div class="large-3 columns">
+							<div class="large-2 columns">
 								<h6>Name</h6>
 							</div>
+							<% if current_user.admin? %>
+								<div class="large-3 columns">
+									<h6>Cust</h6>
+								</div>
+							<% end %>
 							<div class="large-4 columns">
 								<h6>Created</h6>
 							</div>
-							<div class="large-4 columns">
+							<div class="large-2 columns">
 								<h6>Status</h6>
 							</div>
 						</div>

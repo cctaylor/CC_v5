@@ -6,7 +6,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@quotes = @user.quotes.paginate(page: params[:page])
+		if current_user.admin?
+			@quotes = Quote.paginate(page: params[:page])
+		else
+			@quotes = @user.quotes.paginate(page: params[:page])
+		end
 	end
 
 	def new
@@ -17,7 +21,8 @@ class UsersController < ApplicationController
 		if @user = User.find_by_email(params[:user][:email])
 			if @user.lead
 				sign_in @user
-				render 'lead_to_customer'
+				flash[:alert] = "Please complete your profile before entering the details of your quote request."
+				redirect_to 'lead_to_customer'
 			else
 				redirect_to signin_path
 			end
@@ -28,6 +33,7 @@ class UsersController < ApplicationController
 			end
 			if @user.save
 				sign_in @user
+				UserMailer.registration_confirmation(@user).deliver
 				redirect_to rfq_path
 			else
 				render 'new'
@@ -72,6 +78,11 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.paginate(page: params[:page])
+	end
+
+	def admin_toggle
+		@user = User.find(params[:id])
+		@user.toggle!(:admin)
 	end
 
 	private

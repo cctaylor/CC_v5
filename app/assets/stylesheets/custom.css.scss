@@ -77,33 +77,37 @@ section.top-bar-section ul.right .divider {
 
 #mainMarquee {
 	padding: 10px;
-}
-
-#mainMarquee ul {
-	padding-left: 25px;
+	height: 286px;
+	background-size: 583px 286px;
+	background-image: url(/assets/texas_bkgd.jpg);
+	ul {
+		padding-left: 25px;
+	}
 }
 
 #cigarBand {
 	background-color: #C9F76F;
 	padding: emCalc(5px) 0;
 	text-align: center;
-}
-
-#cigarBand h3 {
-	font-style: italic;
-	font-size: emCalc(20px);
-	padding: 0;
-	margin: 0;
+	h3 {
+		font-style: italic;
+		font-size: emCalc(20px);
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .miniMarquee {
-	border: solid 1px black;
-	height: emCalc(200px);
-}
-
-.miniMarquee h3 {
-	text-align: center;
-	font-size: emCalc(14px);
+	height: auto;
+	h3 {
+		text-align: center;
+		font-size: emCalc(16px);
+	}
+	img {
+		margin: 0 auto;
+		display: block;
+		float: center;
+	}
 }
 
 #quoteBox {
@@ -131,58 +135,63 @@ section.top-bar-section ul.right .divider {
 #globalTitle {
 	margin: 0 0 0 emCalc(10px);
 	line-height: 75%;
-}
 
-#globalTitle h1 {
-	font-size: emCalc(32px);
-	margin: 0;
-	padding: 0;
-	font-weight: bold;
+	h1 {
+		font-size: emCalc(32px);
+		margin: 0;
+		padding: 0;
+		font-weight: bold;
 
-	a, a.visited {
-		color: black;
+		a, a.visited {
+			color: black;
+		}
 	}
-}
 
-#globalTitle h2 {
-	font-size: emCalc(16px);
-	margin: 0;
-	padding: 0;
+	h2 {
+		font-size: emCalc(16px);
+		margin: 0;
+		padding: 0;
+	}
 }
 
 .prodDesc {
 	background-color: white;
+	h3 {
+		font-size: emCalc(16px);
+		font-weight: bold;
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+
+	img {
+		padding: 0;
+		margin: 0 auto;
+		display: block;
+		float: center;
+	}
+
+	p {
+		font-size: emCalc(14px);
+		padding: 0;
+		margin: 0;
+	}
+
+	ul {
+		padding: 0;
+		margin: 0 0 0 emCalc(25px);
+	}
+
+	li {
+		font-size: emCalc(14px);
+		font-weight: normal;
+		padding: 0;
+		margin: 0;
+	}
 }
 
-.prodDesc h3 {
-	font-size: emCalc(16px);
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-}
-
-.prodDesc img {
-	padding: 0;
-	margin: 0;
-}
-
-.prodDesc p {
-	font-size: emCalc(14px);
-	padding: 0;
-	margin: 0;
-}
-
-.prodDesc ul {
-	padding: 0;
-	margin: 0 0 0 emCalc(25px);
-}
-
-.prodDesc li {
-	font-size: emCalc(14px);
-	font-weight: normal;
-	padding: 0;
-	margin: 0;
+.prodDescBox {
+	margin: emCalc(16px) emCalc(10px) emCalc(10px) emCalc(5px);
 }
 
 #signature {
@@ -228,18 +237,23 @@ form.custom {
 	}
 }
 
-#error_explanation {
-	color: #f00;
-	ul {
-		list-style: none;
-		margin: 0 0 18px 0;
+.field_with_errors {
+	label {
+		@include form-label-error-color($alert-color);
+	}
+	input {
+		@include form-error-color($alert-color);
 	}
 }
 
-.field_with_errors {
-	@extend .control_group;
-	@extend .error;
+.error_explanation {
+  color: $alert-color;
+
+  ul {
+    margin: 0 0 18px 15px;
+  }
 }
+
 
 /* users index */
 
@@ -283,4 +297,8 @@ form.custom {
 
 .cc-address {
 	list-style: none;
+}
+
+.proper_indent {
+	margin-left: emCalc(30px);
 }

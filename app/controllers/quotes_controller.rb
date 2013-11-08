@@ -11,6 +11,7 @@ class QuotesController < ApplicationController
 		@quote = current_user.quotes.build(params[:quote])
 		if @quote.save
 			flash[:success] = "Your quote has been submitted!"
+			UserMailer.quote_request_confirmation(@quote).deliver
 			sign_out if is_lead?
 			redirect_to root_url
 		else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022155454) do
+ActiveRecord::Schema.define(:version => 20131102171412) do
 
   create_table "quotes", :force => true do |t|
     t.string   "item"
@@ -36,12 +36,12 @@ ActiveRecord::Schema.define(:version => 20131022155454) do
     t.string   "email"
     t.string   "phone"
     t.string   "company"
-    t.boolean  "admin",           :default => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.boolean  "admin",                  :default => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "remember_token"
     t.string   "password_digest"
-    t.boolean  "lead",            :default => true
+    t.boolean  "lead",                   :default => true
     t.string   "address1"
     t.string   "address2"
     t.string   "city"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20131022155454) do
     t.string   "zip"
     t.string   "zip4"
     t.string   "password_salt"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,12 +1,30 @@
 <%= provide(:title, 'Create a new user') %>
-<h1>Create a new user</h1>
 <div class="row">
-	<div class="large-6 large-offset-1 columns">
-		<fieldset>
-			<legend>Enter your contact information</legend>
-			<%= form_for @user, :html => {:class => 'custom'} do |f| %>
-				<%= render 'shared/error_messages', object: f.object %>
+	<div class="large-10 large-offset-1 columns">
+		<h1>Create a new user</h1>
+	</div>
+	<div class="large-1 columns">
+	</div>
+</div>
 
+<%= form_for @user, :html => {:class => 'custom'} do |f| %>
+	<% if f.object.errors.any? %>
+		<div class="row">
+			<div class="large-10 large-offset-1 columns">
+				<div class="error_explanation">
+					<div class="alert alert-error">
+						The form contains <%= pluralize(f.object.errors.count, "error") %>
+					</div>
+				</div>
+			</div>
+			<div class="large-1 columns">
+			</div>
+		</div>
+	<% end %>
+	<div class="row">
+		<div class="large-6 large-offset-1 columns">
+			<fieldset>
+				<legend>Enter your contact information</legend>
 				<div class="row">
 					<div class="large-3 columns">
 						<%= f.label :name_first, "First name" %>
@@ -95,7 +113,10 @@
 						<%= f.submit "Create account", class: "small button" %>
 					</div>
 				</div>
-			<% end %>
-		</fieldset>
+				</div>
+			</fieldset>
+		<div class="large-4 large-offset-1 columns">
+			<%= render 'shared/error_messages', object: f.object %>
+		</div>
 	</div>
-</div>
+<% end %>

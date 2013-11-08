@@ -1,7 +1,7 @@
 <%= provide(:title, 'Reset password') %>
 <div class="row">
 	<div class="large-6 large-offset-1 columns">
-		<%= form_for @user, :html => {:class => 'custom'} do |f| %>
+		<%= form_for @user, :url => password_reset_path(params[:id]), :html => {:class => 'custom'} do |f| %>
 			<% if f.object.errors.any? %>
 				<div class="error_explanation">
 					<div class="alert alert-error">
