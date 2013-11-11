@@ -6,7 +6,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'jquery-rails', '2.0.2'
-gem 'gmaps4rails'
+gem 'gmaps4rails', '1.5.6'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
