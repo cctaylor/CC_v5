@@ -1256,7 +1256,7 @@ $form-spacing: em-calc(12);
 // Background color for the top bar
 
 $topbar-bg-color: #A60000;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
 
@@ -1274,9 +1274,9 @@ $topbar-bg-color: #A60000;
 
 // Style the top bar dropdown elements
 
-// $topbar-dropdown-bg: #222;
+$topbar-dropdown-bg: $topbar-bg-color;
 // $topbar-dropdown-link-color: #fff;
-// // $topbar-dropdown-link-bg: lighten($topbar-bg-color, 5%);
+$topbar-dropdown-link-bg: lighten($topbar-bg-color, 5%);
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.5;
@@ -1305,8 +1305,8 @@ $topbar-link-bg-hover: darken($topbar-bg-color, 7%);
 // $topbar-menu-link-weight: bold;
 // $topbar-menu-link-color: #fff;
 // $topbar-menu-icon-color: #fff;
-// $topbar-menu-link-color-toggled: #888;
-// $topbar-menu-icon-color-toggled: #888;
+$topbar-menu-link-color-toggled: white; //#888
+$topbar-menu-icon-color-toggled: white; //#888;
 
 // Transitions and breakpoint styles
 

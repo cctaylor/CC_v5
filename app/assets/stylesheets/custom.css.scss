@@ -10,6 +10,17 @@ $CTA: #9FEE00;
 	box-sizing: border-box;
 }
 
+
+nav.top-bar.expanded section.top-bar-section ul.left li>a {
+	background-color: $topbar-bg;
+	color: white;
+}
+
+nav.top-bar.expanded section.top-bar-section ul.right li>a {
+	background-color: $CTA;
+	color: black;
+}
+
 section.top-bar-section ul.right li a.li-CTA {
 	background-color: $CTA;
 	color: black;
@@ -26,6 +37,16 @@ section.top-bar-section ul.right .divider {
 	clear: none;
 	height: 45px;
 	width: 0;
+}
+
+nav.top-bar.expanded section.top-bar-section ul.right .divider {
+	border-right: none;
+	border-left: none;
+	border-bottom: solid 1px darken($CTA, 10%);
+	border-top: solid 1px lighten($CTA, 10%);
+	clear: none;
+	height: 1px;
+	width: 100%;
 }
 
 .logged-in-nav {
