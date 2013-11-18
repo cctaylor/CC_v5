@@ -14,6 +14,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<title><%= full_title(yield(:title)) %></title>
+		<% if content_for?(:head) %>
+			<%= yield(:head) %>
+		<% end %>
+
 		<%= stylesheet_link_tag    "application" %>
 		<%= javascript_include_tag "vendor/custom.modernizr" %>
 		<%= csrf_meta_tags %>
@@ -21,9 +25,9 @@
 
 	<body>
 		<div class="row">
-				<%= render 'layouts/header' %>
-	
-				<div class="contain-to-grid body_container">
+			<%= render 'layouts/header' %>
+
+			<div class="contain-to-grid body_container">
 
 				<% flash.each do |key, value| %>
 					<%= content_tag(:div, value, class: "alert alert-#{key}") %>
@@ -35,12 +39,17 @@
 		</div>
 
 		<%= render 'layouts/footer' %>
+		<div class="thinSpacerRow"></div>
+		<% if content_for?(:post_footer) %>
+			<%= yield(:post_footer) %>
+		<% end %>
+
 	
 		<%= javascript_include_tag "application" %>
 
 		<%= debug(params) if Rails.env.development? %>
 
 	</body>
-		<%= yield :scripts %>
+	<%= yield :scripts %>
 
 </html>

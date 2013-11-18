@@ -98,9 +98,12 @@ nav.top-bar.expanded section.top-bar-section ul.right .divider {
 
 #mainMarquee {
 	padding: 10px;
-	height: 286px;
+	min-height: 286px;
 	background-size: 583px 286px;
 	background-image: url(/assets/texas_bkgd.jpg);
+	h1 {
+		font-size: emCalc(23px);
+	}
 	ul {
 		padding-left: 25px;
 	}
@@ -137,7 +140,7 @@ nav.top-bar.expanded section.top-bar-section ul.right .divider {
 	margin-top: 0;
 }
 
-#addressBlock {
+.addressBlock {
 	text-align: right;
 	font-size: emCalc(14px);
 	padding: 0;
@@ -145,19 +148,20 @@ nav.top-bar.expanded section.top-bar-section ul.right .divider {
 	line-height: 125%;
 }
 
-#foot {
+.foot {
 	padding-top: emCalc(15px);
 	text-align: center;
 	font-size: emCalc(12px);
 	margin-top: 0;
 	margin-bottom: 0;
+	border-top: 1px solid black;
 }
 
-#globalTitle {
+.logo {
 	margin: 0 0 0 emCalc(10px);
 	line-height: 75%;
 
-	h1 {
+	h3 {
 		font-size: emCalc(32px);
 		margin: 0;
 		padding: 0;
@@ -168,7 +172,7 @@ nav.top-bar.expanded section.top-bar-section ul.right .divider {
 		}
 	}
 
-	h2 {
+	h4 {
 		font-size: emCalc(16px);
 		margin: 0;
 		padding: 0;
@@ -177,7 +181,7 @@ nav.top-bar.expanded section.top-bar-section ul.right .divider {
 
 .prodDesc {
 	background-color: white;
-	h3 {
+	h2 {
 		font-size: emCalc(16px);
 		font-weight: bold;
 		padding: 0;
@@ -219,6 +223,20 @@ nav.top-bar.expanded section.top-bar-section ul.right .divider {
 	text-align: right;
 }
 
+.postFooter {
+	background-color: #F4F4F4;
+
+	h3 {
+		font-size: emCalc(14px);
+		font-weight: bold;
+		color: #666;
+	}
+
+	p {
+		font-size: emCalc(14px);
+		color: #666;
+	}
+}
 
 
 /*  miscellaneous  */
@@ -280,10 +298,11 @@ form.custom {
 
 .users {
 	list-style: none;
+	font-size: emCalc(12px);
 	margin: 0;
 	padding: 0;
 	li {
-	//	overflow: auto;
+		overflow: auto;
 		padding: 10px 0;
 		margin: 0;
 		border-top: 1px solid $lighterGray;
@@ -291,6 +310,11 @@ form.custom {
 			border-bottom: 1px solid $lighterGray;
 		}
 	}
+}
+
+.user-index-cell {
+	height: 1.6em;
+	width: 100%;
 }
 
 
@@ -322,4 +346,8 @@ form.custom {
 
 .proper_indent {
 	margin-left: emCalc(30px);
+}
+
+.text-centered {
+	text-align: center;
 }

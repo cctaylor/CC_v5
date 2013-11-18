@@ -1,25 +1,25 @@
 <li>
 	<div class="row">
-		<div class="large-1 columns">
+		<div class="small-1 large-1 columns">
 			<%= user.id %>
 		</div>
-		<div class="large-3 columns">
+		<div class="small-3 columns">
 			<%= link_to "#{user.name_last}, #{user.name_first}", user %>
 		</div>
-		<div class="large-3 columns">
-			<%= user.company %>
+		<div class="small-3 columns">
+			<div class="user-index-cell"><%= (user.company != nil) ? user.company : " " %></div>
 		</div>
-		<div class="large-1 large-offset-1 columns">
-			<% if current_user.admin? && user.admin? %>
+		<div class="small-1 small-offset-1 columns text-centered">
+			<% if user.admin? %>
 				Admin
 			<% else %>
 				User
 			<% end %>
 		</div>
-		<div class="large-1 columns">
+		<div class="small-1 columns text-centered">
 			<%= user.quotes.count %>
 		</div>
-		<div class="large-3 columns">
+		<div class="small-1 columns text-centered">
 			<% if current_user.admin? && !current_user?(user) %>
 					<%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
 			<% end %>

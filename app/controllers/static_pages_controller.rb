@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 		@user = User.new
 	end
 
-	def services
+	def printing_services
 	end
 
 	def customers

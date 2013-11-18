@@ -29,7 +29,7 @@ module SessionsHelper
 	end
 
 	def signed_in_lead
-		unless signed_in? and !is_customer? and current_user?(@user)
+		unless signed_in? and !is_customer?
 			store_location
 			redirect_to signin_url, notice: "Please sign in"
 		end
@@ -58,6 +58,10 @@ module SessionsHelper
 
 	def store_location
 		session[:return_to] = request.url
+	end
+
+	def is_customer?
+		!current_user.lead
 	end
 
 end

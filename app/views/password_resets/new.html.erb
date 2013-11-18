@@ -8,7 +8,11 @@
 				<%= label_tag :email %>
 				<%= text_field_tag :email, params[:email] %>
 			</div>
-			<div class="actions"><%= submit_tag "Reset Password" %></div>
+			<div class="row">
+				<div class="large-4 columns">
+					<div class="actions"><%= submit_tag "Reset Password", class: "button-non-CTA" %></div>
+				</div>
+			</div>
 		<% end %>
 	</div>
 	<div class="large-6 columns">

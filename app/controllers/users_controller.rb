@@ -22,8 +22,9 @@ class UsersController < ApplicationController
 			if @user.lead
 				sign_in @user
 				flash[:alert] = "Please complete your profile before entering the details of your quote request."
-				redirect_to 'lead_to_customer'
+				redirect_to lead_to_customer_path
 			else
+				flash[:alert] = "Please sign in."
 				redirect_to signin_path
 			end
 		else
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
 	end
 
 	def lead_to_customer
+		@user = current_user
 	end
 
 	def update
